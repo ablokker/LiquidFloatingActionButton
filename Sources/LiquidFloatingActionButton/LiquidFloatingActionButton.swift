@@ -33,6 +33,19 @@ public enum LiquidFloatingActionButtonAnimateStyle : Int {
 @IBDesignable
 open class LiquidFloatingActionButton : UIView {
 
+    public var openDuration: CGFloat {
+        set { baseView.openDuration = newValue }
+        get { return baseView.openDuration }
+    }
+    public var closeDuration: CGFloat {
+        set { baseView.closeDuration = newValue }
+        get { return baseView.closeDuration }
+    }
+    public var viscosity: CGFloat {
+        set { baseView.viscosity = newValue }
+        get { return baseView.viscosity }
+    }
+
     fileprivate let internalRadiusRatio: CGFloat = 20.0 / 56.0
     open var cellRadiusRatio: CGFloat      = 0.38
     open var animateStyle: LiquidFloatingActionButtonAnimateStyle = .up {
@@ -273,9 +286,9 @@ class ActionBarBaseView : UIView {
 
 class CircleLiquidBaseView : ActionBarBaseView {
 
-    let openDuration: CGFloat  = 0.6
-    let closeDuration: CGFloat = 0.2
-    let viscosity: CGFloat     = 0.65
+    var openDuration: CGFloat  = 0.6
+    var closeDuration: CGFloat = 0.2
+    var viscosity: CGFloat     = 0.65
     var animateStyle: LiquidFloatingActionButtonAnimateStyle = .up
     var color: UIColor = UIColor(red: 82 / 255.0, green: 112 / 255.0, blue: 235 / 255.0, alpha: 1.0) {
         didSet {
